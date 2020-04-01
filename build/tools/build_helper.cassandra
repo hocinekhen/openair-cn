@@ -52,9 +52,9 @@ check_install_cassandra_software() {
         PROXY_DISABLED=1
         $SUDO mv /etc/apt/apt.conf.d/01proxy /tmp
     fi
-    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | $SUDO /usr/bin/debconf-set-selections
+    echo openjdk-java8-installer shared/accepted-oracle-license-v1-1 select true | $SUDO /usr/bin/debconf-set-selections
     # install Java 8
-    $SUDO $INSTALLER install $OPTION curl oracle-java8-installer
+    $SUDO $INSTALLER install $OPTION curl openjdk-8-jdk openjdk-8-jre
     if [ $PROXY_DISABLED -eq 1 ]
     then
         $SUDO mv /tmp/01proxy /etc/apt/apt.conf.d
